@@ -1,0 +1,70 @@
+# 1. Простой счётчик
+http_requests_total{method="GET",code="200"} 12345 1699999999000
+
+# 2. Gauge без меток
+temperature_celsius 21.3
+
+# 3. Gauge с timestamp
+temperature_celsius{sensor="office"} 23.5 1712345678000
+
+# 4. Untyped (Prometheus допускает тип untyped)
+# TYPE cpu_cycles_total untyped
+cpu_cycles_total 987654321
+
+# 5. Гистограмма
+request_duration_seconds_bucket{le="0.1"} 10
+request_duration_seconds_bucket{le="0.5"} 20
+request_duration_seconds_bucket{le="1"} 30
+request_duration_seconds_bucket{le="+Inf"} 40
+request_duration_seconds_sum 12.3
+request_duration_seconds_count 40
+
+# 6. Summary
+rpc_duration_seconds{quantile="0.5"} 0.05
+rpc_duration_seconds{quantile="0.9"} 0.1
+rpc_duration_seconds_sum 2.3
+rpc_duration_seconds_count 42
+
+# 7. Empty labels
+disk_usage_bytes{} 1234567
+
+# 8. Строка только с HELP и TYPE
+# HELP something_total Just a test
+# TYPE something_total counter
+
+# 9. Значение 0
+some_zero_metric 0
+
+# 10. Метрика без таймштампа
+my_counter_total{label="x"} 42
+
+# 11. Пропущен label value (будет ошибкой)
+bad_metric{label=} 123
+
+# 12. Отсутствует значение
+incomplete_metric{label="test"}
+
+# 13. Не закрыт label-блок
+bad_metric{label="value" 123
+
+# 14. Некорректное число
+metric_invalid 1.2.3
+
+# 15. Несуществующий тип
+# TYPE unknown_metric magic
+unknown_metric 42
+
+# 16. Пустая строка
+
+
+# 17. Случайный текст
+this is not a metric line
+
+# 18. Пробелы в имени метрики
+invalid metric name 123
+
+# 19. Неэкранированные кавычки
+weird_metric{label="broken} 1
+
+# 20. Отрицательное значение для counter (некорректно по смыслу)
+http_requests_total -10
