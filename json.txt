@@ -1,0 +1,20 @@
+{"key": "value"}
+{"count": 42}
+{"active": true}
+{}
+{"list": []}
+{"numbers": [1, 2, 3, 4, 5]}
+{"user": {"id": 1, "name": "Alice"}}
+{"users": [{"id": 1}, {"id": 2}]}
+{"deleted": null}
+{"text": "Line1\\nLine2\\tTabbed"}
+{"emoji": "😄", "symbols": "©®✓"}
+{"a": {"b": {"c": {"d": {"e": "deep"}}}}}
+{"long_text": "a".repeat(1000)}
+{"big_number": 12345678901234567890}
+{"values": [-1, -0.5, 0.0, 3.14]}
+{"weird key!@#": "value"}
+{"str": "abc", "num": 1, "bool": false, "null": null, "arr": [1,2], "obj": {"x": 10}}
+{"matrix": [[1,2], [3,4]]}
+{"empty": "", "zero": 0}
+{"as_string": "123", "as_number": 123}
