@@ -1,0 +1,162 @@
+// 1. Минимально корректное сообщение
+{
+  "version": "1.1",
+  "host": "localhost",
+  "short_message": "Ping"
+}
+
+// 2. Сообщение с полным описанием
+{
+  "version": "1.1",
+  "host": "web01",
+  "short_message": "Request failed",
+  "full_message": "GET /api/v1/items/ caused 500 Internal Server Error",
+  "timestamp": 1628074057.123,
+  "level": 3,
+  "facility": "web"
+}
+
+// 3. Сообщение об ошибке в коде
+{
+  "version": "1.1",
+  "host": "app01",
+  "short_message": "Panic in worker thread",
+  "file": "src/worker.rs",
+  "line": 42,
+  "_thread": "worker-7"
+}
+
+// 4. Только обязательные поля, но с timestamp
+{
+  "version": "1.1",
+  "host": "service-a",
+  "short_message": "Heartbeat",
+  "timestamp": 1628000000.000
+}
+
+// 5. Уровень 0 (emergency)
+{
+  "version": "1.1",
+  "host": "db01",
+  "short_message": "Disk failure",
+  "level": 0
+}
+
+// 6. Пользовательское поле: user_id
+{
+  "version": "1.1",
+  "host": "api-gw",
+  "short_message": "User login",
+  "_user_id": 1024,
+  "_auth": "OAuth2"
+}
+
+// 7. Unicode в сообщении
+{
+  "version": "1.1",
+  "host": "proxy",
+  "short_message": "Запрос отклонён",
+  "full_message": "Ошибка авторизации: неверный токен"
+}
+
+// 8. Сообщение с float полем
+{
+  "version": "1.1",
+  "host": "sensor01",
+  "short_message": "Temperature reading",
+  "_temp": 36.6
+}
+
+// 9. Некорректный уровень (тест на границу)
+{
+  "version": "1.1",
+  "host": "test",
+  "short_message": "Invalid level test",
+  "level": 99
+}
+
+// 10. Отрицательный timestamp
+{
+  "version": "1.1",
+  "host": "timewarp",
+  "short_message": "Reverse time log",
+  "timestamp": -12345678.9
+}
+
+// 11. Очень длинное сообщение
+{
+  "version": "1.1",
+  "host": "bulk",
+  "short_message": "x".repeat(30000)
+}
+
+// 12. Array в пользовательском поле
+{
+  "version": "1.1",
+  "host": "batch-processor",
+  "short_message": "Processed batch",
+  "_ids": [1, 2, 3, 4]
+}
+
+// 13. Boolean поле
+{
+  "version": "1.1",
+  "host": "auth",
+  "short_message": "Login attempt",
+  "_success": true
+}
+
+// 14. Null в необязательном поле
+{
+  "version": "1.1",
+  "host": "server",
+  "short_message": "Null test",
+  "full_message": null
+}
+
+// 15. Большое дробное timestamp
+{
+  "version": "1.1",
+  "host": "worker",
+  "short_message": "Delay",
+  "timestamp": 9999999999.999
+}
+
+// 16. Странный hostname
+{
+  "version": "1.1",
+  "host": "!@#@!$%",
+  "short_message": "Garbage hostname"
+}
+
+// 17. Отсутствие обязательного поля
+{
+  "version": "1.1",
+  "short_message": "No host"
+}
+
+// 18. Не строка в short_message (нарушение)
+{
+  "version": "1.1",
+  "host": "bad",
+  "short_message": 12345
+}
+
+// 19. Поле _json внутри пользовательского
+{
+  "version": "1.1",
+  "host": "api",
+  "short_message": "Embedded data",
+  "_payload": "{\"key\": \"val\", \"num\": 10}"
+}
+
+// 20. Вложенный объект (тест на сериализацию)
+{
+  "version": "1.1",
+  "host": "complex",
+  "short_message": "Nested object",
+  "_meta": {
+    "id": 123,
+    "ok": true
+  }
+}
