@@ -1,0 +1,5 @@
+package goproj
+
+func main() {
+
+}
