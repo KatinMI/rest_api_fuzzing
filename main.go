@@ -1,5 +1,8 @@
 package goproj
 
-func main() {
+import "fmt"
 
+func main() {
+	fmt.Println("test")
+	fmt.Println("Second test")
 }
